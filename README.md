@@ -262,6 +262,161 @@ The volunteer can confirm the delivery of a food posting. Replace `{id}` with th
 **URL:** `http://localhost:3000/api/food/{id}/confirm-delivery`  
 **Headers:** `Authorization: Bearer <volunteer_token>`
 
+# API Endpoint Test Cases
+
+This document provides test cases for the various API endpoints in the application. Each endpoint has test cases for:
+
+1. **Valid Request**: Expected behavior for valid inputs.
+2. **Missing/Invalid Data**: Errors when required data is missing or invalid.
+3. **Unauthorized Access**: Cases where a user tries to access without proper authorization.
+
+---
+
+### 1. User Registration
+
+**Endpoint**: `POST /api/auth/register`
+
+#### Test Cases
+
+1. **Valid Registration**
+   - **Input**: `{ "name": "John Doe", "email": "restaurant@example.com", "password": "password123", "role": "restaurant" }`
+   - **Expected**: `201 Created`, user successfully registered.
+
+2. **Missing Fields**
+   - **Input**: `{ "name": "John Doe", "password": "password123", "role": "restaurant" }`
+   - **Expected**: `400 Bad Request`, `"email" is required`.
+
+3. **Invalid Role**
+   - **Input**: `{ "name": "John Doe", "email": "restaurant@example.com", "password": "password123", "role": "invalid_role" }`
+   - **Expected**: `400 Bad Request`, `"role" must be one of restaurant, charity, volunteer`.
+
+---
+
+### 2. User Login
+
+**Endpoint**: `POST /api/auth/login`
+
+#### Test Cases
+
+1. **Valid Login**
+   - **Input**: `{ "email": "restaurant@example.com", "password": "password123" }`
+   - **Expected**: `200 OK`, returns JWT token.
+
+2. **Invalid Password**
+   - **Input**: `{ "email": "restaurant@example.com", "password": "wrongpassword" }`
+   - **Expected**: `401 Unauthorized`, `"Invalid email or password"`.
+
+3. **Unregistered Email**
+   - **Input**: `{ "email": "nonexistent@example.com", "password": "password123" }`
+   - **Expected**: `401 Unauthorized`, `"Invalid email or password"`.
+
+---
+
+### 3. Create Food Posting (Restaurant Only)
+
+**Endpoint**: `POST /api/food`
+
+#### Test Cases
+
+1. **Valid Food Posting**
+   - **Input**: `{ "name": "Sandwiches", "description": "Fresh stock", "quantity": 10, "expiry_date": "2024-12-31", "location": "40.7128,-74.0060" }`
+   - **Expected**: `201 Created`, food posting added.
+
+2. **Unauthorized Access (No Token)**
+   - **Expected**: `403 Forbidden`, `"Authorization token required"`.
+
+3. **Unauthorized Role**
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a charity or volunteer token).
+
+---
+
+### 4. Get Available Food Postings (Charity Only)
+
+**Endpoint**: `GET /api/food`
+
+#### Test Cases
+
+1. **Valid Request**
+   - **Expected**: `200 OK`, returns food listings.
+
+2. **Unauthorized Access (No Token)**
+   - **Expected**: `403 Forbidden`, `"Authorization token required"`.
+
+3. **Unauthorized Role**
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant or volunteer token).
+
+---
+
+### 5. Request Pickup for Food (Charity Only)
+
+**Endpoint**: `POST /api/food/{id}/request`
+
+#### Test Cases
+
+1. **Valid Request**
+   - **Expected**: `200 OK`, pickup requested.
+
+2. **Invalid Food ID**
+   - **Expected**: `404 Not Found`, `"Food item not found"`.
+
+3. **Unauthorized Role**
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant or volunteer token).
+
+---
+
+### 6. Approve or Reject Food Request (Restaurant Only)
+
+**Endpoints**: `POST /api/food/{id}/approve`, `POST /api/food/{id}/reject`
+
+#### Test Cases
+
+1. **Approve Valid Request**
+   - **Expected**: `200 OK`, request approved.
+
+2. **Reject Valid Request**
+   - **Expected**: `200 OK`, request rejected.
+
+3. **Unauthorized Role**
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a charity or volunteer token).
+
+---
+
+### 7. Assign Volunteer (Restaurant Only)
+
+**Endpoint**: `POST /api/food/{id}/assign-volunteer`
+
+#### Test Cases
+
+1. **Assign Valid Volunteer**
+   - **Input**: `{ "volunteer_id": "<valid_volunteer_id>" }`
+   - **Expected**: `200 OK`, volunteer assigned.
+
+2. **Invalid Volunteer ID**
+   - **Expected**: `404 Not Found`, `"Volunteer not found"`.
+
+3. **Unauthorized Role**
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a charity or volunteer token).
+
+---
+
+### 8. Confirm Delivery (Volunteer Only)
+
+**Endpoint**: `POST /api/food/{id}/confirm-delivery`
+
+#### Test Cases
+
+1. **Valid Confirmation**
+   - **Expected**: `200 OK`, delivery confirmed.
+
+2. **Invalid Food ID**
+   - **Expected**: `404 Not Found`, `"Food item not found"`.
+
+3. **Unauthorized Role**
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant or charity token).
+
+---
+
+This document provides a structured outline for testing the behavior of each endpoint under different scenarios, ensuring robust handling of valid requests, errors, and unauthorized access attempts.
 
 ---
 
