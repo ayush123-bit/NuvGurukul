@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "2ba8b189-4ef9-4f15-9a99-f1932dfa7a0c",
+		"name": "NuvGurukulAssignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29604040"
+	},
+	"item": [
+		{
+			"name": "create users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Dev Hammer\",\r\n    \"email\": \"volunteer@example.com\",\r\n    \"password\": \"password123\",\r\n    \"role\": \"volunteer\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login restaurent user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"restaurant@example.com\",\r\n    \"password\": \"password123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create food posting",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzJmNjdhZDc4MjNhYWNmZjcwOWYyNzEiLCJyb2xlIjoicmVzdGF1cmFudCIsImlhdCI6MTczMTE2MDMzMH0.dnKL2MsHNBEs6eLwtnu2gOHIO4TD--ZF7uRZhcBSy4I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Surplus Sandwiches\",\r\n    \"description\": \"Fresh sandwiches from today's stock\",\r\n    \"quantity\": 10,\r\n    \"expiry_date\": \"2024-12-31\",\r\n    \"location\": \"40.7128,-74.0060\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/food",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login charity user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"charity@example.com\",\r\n    \"password\": \"password123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get food",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzJmNjdmODc4MjNhYWNmZjcwOWYyNzMiLCJyb2xlIjoiY2hhcml0eSIsImlhdCI6MTczMTE2MDY2N30.8vQ21TtFv6iLxxqhcRIZfrnC9X44KJ7sYuy2hSW5alU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/food",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "request food id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzJmNjdmODc4MjNhYWNmZjcwOWYyNzMiLCJyb2xlIjoiY2hhcml0eSIsImlhdCI6MTczMTE2MDY2N30.8vQ21TtFv6iLxxqhcRIZfrnC9X44KJ7sYuy2hSW5alU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/food/672f69987823aacff709f278/request",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"food",
+						"672f69987823aacff709f278",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "food request reject",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzJmNjdhZDc4MjNhYWNmZjcwOWYyNzEiLCJyb2xlIjoicmVzdGF1cmFudCIsImlhdCI6MTczMTE2MDMzMH0.dnKL2MsHNBEs6eLwtnu2gOHIO4TD--ZF7uRZhcBSy4I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/food/672f6b107823aacff709f27c/reject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"food",
+						"672f6b107823aacff709f27c",
+						"reject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "food request approved",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzJmNjdhZDc4MjNhYWNmZjcwOWYyNzEiLCJyb2xlIjoicmVzdGF1cmFudCIsImlhdCI6MTczMTE2MDMzMH0.dnKL2MsHNBEs6eLwtnu2gOHIO4TD--ZF7uRZhcBSy4I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/food/672f6b107823aacff709f27c/approve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"food",
+						"672f6b107823aacff709f27c",
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign volunteer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzJmNjdhZDc4MjNhYWNmZjcwOWYyNzEiLCJyb2xlIjoicmVzdGF1cmFudCIsImlhdCI6MTczMTE2MDMzMH0.dnKL2MsHNBEs6eLwtnu2gOHIO4TD--ZF7uRZhcBSy4I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"volunteer_id\": \"672f68577823aacff709f275\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/food/672f6b107823aacff709f27c/assign-volunteer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"food",
+						"672f6b107823aacff709f27c",
+						"assign-volunteer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login volunteer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"volunteer@example.com\",\r\n    \"password\": \"password123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm delivery",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzJmNjg1Nzc4MjNhYWNmZjcwOWYyNzUiLCJyb2xlIjoidm9sdW50ZWVyIiwiaWF0IjoxNzMxMTYxNzMyfQ.z2gn7cunXKl8E_ODLDrdgBRs4CdN82nlOM9xPAzc568",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/food/672f6d257823aacff709f283/confirm-delivery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"food",
+						"672f6d257823aacff709f283",
+						"confirm-delivery"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
