@@ -326,7 +326,7 @@ This document provides test cases for the various API endpoints in the applicati
    - **Expected**: `403 Forbidden`, `"Authorization token required"`.
 
 3. **Unauthorized Role**
-   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a charity or volunteer token).
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant user token).
 
 ---
 
@@ -343,7 +343,7 @@ This document provides test cases for the various API endpoints in the applicati
    - **Expected**: `403 Forbidden`, `"Authorization token required"`.
 
 3. **Unauthorized Role**
-   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant or volunteer token).
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a charity user token).
 
 ---
 
@@ -360,7 +360,7 @@ This document provides test cases for the various API endpoints in the applicati
    - **Expected**: `404 Not Found`, `"Food item not found"`.
 
 3. **Unauthorized Role**
-   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant or volunteer token).
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a charity user token).
 
 ---
 
@@ -377,7 +377,7 @@ This document provides test cases for the various API endpoints in the applicati
    - **Expected**: `200 OK`, request rejected.
 
 3. **Unauthorized Role**
-   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a charity or volunteer token).
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant user token).
 
 ---
 
@@ -395,7 +395,7 @@ This document provides test cases for the various API endpoints in the applicati
    - **Expected**: `404 Not Found`, `"Volunteer not found"`.
 
 3. **Unauthorized Role**
-   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a charity or volunteer token).
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant user token).
 
 ---
 
@@ -412,7 +412,7 @@ This document provides test cases for the various API endpoints in the applicati
    - **Expected**: `404 Not Found`, `"Food item not found"`.
 
 3. **Unauthorized Role**
-   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a restaurant or charity token).
+   - **Expected**: `403 Forbidden`, `"Access denied"` (Use a volunteer token).
 
 ---
 
