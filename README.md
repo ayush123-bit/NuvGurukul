@@ -34,7 +34,7 @@ To get the server up and running on your local machine, follow the steps below:
 3. Create a `.env` file in the root of the project with the following content (adjust values accordingly):
 
    ```env
-   MONGO_URI=your_mongo_database_url
+  
    JWT_SECRET=your_jwt_secret_key
    ```
 
