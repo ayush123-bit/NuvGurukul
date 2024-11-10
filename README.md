@@ -39,7 +39,7 @@ To get the server up and running on your local machine, follow the steps below:
 4. Run the server:
 
    ```bash
-   npm start
+   node backend/app.js
    ```
 
    The server will run at [http://localhost:3000](http://localhost:3000).
@@ -47,7 +47,7 @@ To get the server up and running on your local machine, follow the steps below:
 Alternatively, to run the server in development mode using `nodemon`:
 
 ```bash
-npx nodemon backend/server.js
+ nodemon backend/app.js
 ```
 
 ---
@@ -110,18 +110,7 @@ const volunteerAssignmentSchema = new mongoose.Schema({
 });
 ```
 
-### 5. Delivery Confirmation Schema (for Volunteers)
 
-Volunteers confirm food deliveries through this schema. It stores information about the delivery status and completion.
-
-```js
-const deliverySchema = new mongoose.Schema({
-  food: { type: mongoose.Schema.Types.ObjectId, ref: 'Food', required: true },
-  volunteer: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  deliveryStatus: { type: String, enum: ['in-progress', 'delivered'], default: 'in-progress' },
-  deliveredAt: { type: Date },
-});
-```
 
 ---
 
