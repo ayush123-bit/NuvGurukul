@@ -19,8 +19,10 @@ To get the server up and running on your local machine, follow the steps below:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/food-donation-system.git
-   cd food-donation-system
+   git clone https://github.com/ayush123-bit/NuvGurukul.git
+
+   cd NuvGurukul/backend
+
    ```
 
 2. Install dependencies:
@@ -39,7 +41,7 @@ To get the server up and running on your local machine, follow the steps below:
 4. Run the server:
 
    ```bash
-   node backend/app.js
+   node app.js
    ```
 
    The server will run at [http://localhost:3000](http://localhost:3000).
@@ -47,7 +49,7 @@ To get the server up and running on your local machine, follow the steps below:
 Alternatively, to run the server in development mode using `nodemon`:
 
 ```bash
- nodemon backend/app.js
+ nodemon app.js
 ```
 
 ---
